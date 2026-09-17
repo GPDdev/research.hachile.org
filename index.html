@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="何嘉乐的个人研究与工程履历：竞赛奖项、技术能力、项目经历与个人特长。">
+  <link rel="canonical" href="https://research.hachile.org/">
+  <title>何嘉乐｜Research Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #14213d;
+      --muted: #52617a;
+      --accent: #2156a5;
+      --accent-soft: #e9f0fb;
+      --line: #d8e1ef;
+      --paper: #ffffff;
+      --page: #f3f6fa;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgb(33 86 165 / 5%) 0, transparent 32rem),
+        var(--page);
+      font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: var(--accent); text-underline-offset: 0.22em; }
+    a:hover { text-decoration-thickness: 2px; }
+    .skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 10; padding: .6rem 1rem; background: var(--ink); color: white; }
+    .skip-link:focus { top: 1rem; }
+
+    .page {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 1.5rem auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgb(20 33 61 / 10%);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem clamp(1.25rem, 4vw, 3.5rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand, .home-link { font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-decoration: none; }
+    .brand { color: var(--ink); }
+    .home-link { padding: .45rem .8rem; border: 1px solid var(--line); border-radius: 999px; }
+    .home-link:hover { background: var(--accent-soft); border-color: #afc4e5; }
+
+    main { padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 6vw, 5.5rem); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(16rem, .65fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; padding-bottom: clamp(2.5rem, 6vw, 5rem); }
+    .hero > *, .section-body, .facts, .facts > * { min-width: 0; }
+    .eyebrow, .section-kicker { margin: 0 0 .7rem; color: var(--accent); font-size: .76rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(3.4rem, 9vw, 7.8rem); font-weight: 500; letter-spacing: -.06em; line-height: .95; }
+    .headline { display: flex; flex-wrap: wrap; gap: .15rem .55rem; margin: 1.2rem 0 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); }
+    .headline span { flex: 0 0 auto; }
+    .headline span + span::before { content: "·"; margin-right: .55rem; }
+    .research-note { margin: 1rem 0 0; max-width: 42rem; font-weight: 700; }
+
+    .contact-card { padding: 1.4rem; background: var(--ink); color: white; }
+    .contact-card p { margin: 0; }
+    .contact-card p + p { margin-top: .48rem; }
+    .contact-card a { color: white; overflow-wrap: anywhere; }
+    .contact-label { display: inline-block; min-width: 4.6rem; color: #b8cae7; font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
+
+    section.resume-section { display: grid; grid-template-columns: minmax(10rem, .28fr) minmax(0, .72fr); gap: clamp(1.5rem, 5vw, 4rem); padding: clamp(2rem, 5vw, 4rem) 0; border-top: 1px solid var(--line); }
+    .section-heading h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 500; line-height: 1.2; }
+    .section-body > :first-child { margin-top: 0; }
+    .section-body > :last-child { margin-bottom: 0; }
+
+    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 2rem; margin: 0; }
+    .facts div { padding-bottom: .7rem; border-bottom: 1px solid var(--line); }
+    dt { color: var(--muted); font-size: .8rem; font-weight: 700; letter-spacing: .05em; }
+    dd { margin: .16rem 0 0; font-weight: 650; overflow-wrap: anywhere; }
+    .note { color: var(--muted); font-size: .9rem; }
+
+    ul { margin: 0; padding-left: 1.25rem; }
+    li + li { margin-top: .7rem; }
+    .award-summary { margin: 0 0 1.2rem; padding: 1rem 1.15rem; border-left: 4px solid var(--accent); background: var(--accent-soft); font-weight: 700; }
+
+    .skill + .skill, .project + .project, .strength + .strength { margin-top: 2rem; }
+    .skill h3, .project h3, .strength h3 { margin: 0 0 .45rem; font-size: 1.08rem; line-height: 1.45; }
+    .skill p, .project p, .strength p { margin: 0; color: #2f3c52; }
+    .project-meta { margin: 0 0 .55rem !important; color: var(--accent) !important; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .project-link { display: inline-block; margin-bottom: 1.5rem; font-weight: 700; }
+
+    footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem clamp(1.25rem, 4vw, 3.5rem); border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+
+    @media (max-width: 760px) {
+      .page { width: 100%; margin: 0; border: 0; box-shadow: none; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .home-link { white-space: nowrap; }
+      .hero, section.resume-section { grid-template-columns: 1fr; }
+      .hero { align-items: start; }
+      .headline { overflow-wrap: anywhere; }
+      .facts { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+    }
+
+    @media print {
+      body { background: white; }
+      .page { width: 100%; margin: 0; border: 0; box-shadow: none; }
+      .topbar, footer { display: none; }
+      main { padding: 0; }
+      .hero { padding-top: 1rem; }
+      section.resume-section { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到主要内容</a>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#top">何嘉乐 · Research</a>
+      <a class="home-link" href="https://hachile.org/">返回 hachile.org →</a>
+    </header>
+
+    <main id="content">
+      <section class="hero" id="top">
+        <div>
+          <p class="eyebrow">Personal Resume · 个人简历</p>
+          <h1>何嘉乐</h1>
+          <p class="headline"><span>同济大学国豪书院</span><span>未来技术班（机器人）</span><span>大二</span></p>
+          <p class="research-note">当前有一篇 AI 能源类二区期刊论文，一作在投。</p>
+        </div>
+        <div class="contact-card" aria-label="联系方式">
+          <p><span class="contact-label">邮箱</span><a href="mailto:hejiale.ai@outlook.com">hejiale.ai@outlook.com</a></p>
+          <p><span class="contact-label">微信 / QQ</span>1213956808</p>
+          <p><span class="contact-label">GitHub</span><a href="https://github.com/GPDdev">github.com/GPDdev</a></p>
+        </div>
+      </section>
+
+      <section class="resume-section" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <p class="section-kicker">01 · Profile</p>
+          <h2 id="profile-title">个人信息</h2>
+        </div>
+        <div class="section-body">
+          <dl class="facts">
+            <div><dt>姓名</dt><dd>何嘉乐</dd></div>
+            <div><dt>学号</dt><dd>2554072</dd></div>
+            <div><dt>学院</dt><dd>同济大学国豪书院</dd></div>
+            <div><dt>专业</dt><dd>未来技术班（机器人）</dd></div>
+            <div><dt>年级</dt><dd>大二</dd></div>
+            <div><dt>邮箱</dt><dd><a href="mailto:hejiale.ai@outlook.com">hejiale.ai@outlook.com</a></dd></div>
+          </dl>
+          <p class="note">未来技术班来自国豪书院二次选拔，实施交叉学科领域培养。</p>
+        </div>
+      </section>
+
+      <section class="resume-section" aria-labelledby="awards-title">
+        <div class="section-heading">
+          <p class="section-kicker">02 · Awards</p>
+          <h2 id="awards-title">代表性竞赛奖项</h2>
+        </div>
+        <div class="section-body">
+          <p class="award-summary">大一期间共获得校级竞赛奖项八次、省级一次、国家级四次。</p>
+          <ul>
+            <li>2026 CCPC 全国邀请赛福州站铜牌</li>
+            <li>首届同济大学物理学术竞赛二等奖</li>
+            <li>同济大学第三届网络安全竞赛二等奖</li>
+            <li>第 25 届“同路人”交通科技大赛二等奖</li>
+            <li>“先导杯”全国大学生计算机系统能力大赛——智能计算创新设计赛校赛三等奖</li>
+            <li>第九届中国国际大学生创新大赛同济大学校内赛银奖</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-section" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="section-kicker">03 · Skills</p>
+          <h2 id="skills-title">技术能力</h2>
+        </div>
+        <div class="section-body">
+          <article class="skill">
+            <h3>编程开发</h3>
+            <p>熟练掌握 Python、C++，具备 Flask、Streamlit Web 应用开发经验，熟悉端到端系统开发、API 对接与工程化集成流程；有 Qt、Arduino、Openloong、Isaac Sim 经验。</p>
+          </article>
+          <article class="skill">
+            <h3>AI / 深度学习</h3>
+            <p>完成华为 HCIA-AI 课程学习，熟悉 PyTorch 模型训练与部署，具备 YOLO、OpenCV 等计算机视觉工程应用经验；参与 VLA / 具身智能方向项目实践，了解 Stable Diffusion、TensorFlow，具备 CNN / RNN 与时序分析实践经验。</p>
+          </article>
+          <article class="skill">
+            <h3>仿真与工具链</h3>
+            <p>熟悉 Blender、Unity、MATLAB，具备仿真场景构建、UI 设计与网页开发经验。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-kicker">04 · Projects</p>
+          <h2 id="projects-title">部分项目经历</h2>
+        </div>
+        <div class="section-body">
+          <a class="project-link" href="https://github.com/GPDdev">GitHub 个人主页（30+ 项目）→</a>
+
+          <article class="project">
+            <p class="project-meta">国家级大学生创新创业训练计划 · 总策划</p>
+            <h3>西南一楼数字孪生平台</h3>
+            <p>基于朱合华院士团队的基础设施数字底座与同济 iS3 Lab，构建以西南一楼宿舍为基座的未来书院社区平台。我负责从计划提出、招募成员、寻求实验室和导师支持，到计划书撰写、API 申请、Blender 三维建模、云服务器评估部署与 UI 设计。该项目已升级为国家级大创项目。</p>
+          </article>
+
+          <article class="project">
+            <p class="project-meta">独立开发</p>
+            <h3>IASR System：空中态势识别集成系统</h3>
+            <p>系统以视频为输入进行目标检测与跟踪，计算交通态势指标与拥堵指数，同时给出基于视频清晰度的能见度态势估计，最终输出统一格式的事件，并根据配置将事件路由给运行、安防、应急、交管等对象。项目获同济大学国豪书院第三届“研学济豪”海报展三等奖。</p>
+          </article>
+
+          <article class="project">
+            <p class="project-meta">国家级大学生创新创业训练计划 · 课题组成员</p>
+            <h3>AegisDrive：面向自动驾驶失效场景的世界模型辅助最小风险决策系统</h3>
+            <p>采用“舱内监控 + 舱外感知”双轨架构：舱内基于眼部与嘴部几何规则判定驾驶员状态，舱外使用轻量级 YOLOv8n 实现车辆检测与单目测距。基于世界模型，通过 Python 多进程并发处理双路视频流并实时预警，构建集成的主动式自驾安全方案。我负责舱内面部识别开发与项目文件撰写。项目获第 25 届“同路人”交通科技大赛新生赛二等奖，并升级为国家级大创项目；参加第九届中国国际大学生创新大赛同济大学校内赛获银奖。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section" aria-labelledby="strengths-title">
+        <div class="section-heading">
+          <p class="section-kicker">05 · Strengths</p>
+          <h2 id="strengths-title">个人特长</h2>
+        </div>
+        <div class="section-body">
+          <article class="strength">
+            <h3>学科基础</h3>
+            <p>高中获信息学竞赛省一等奖；高考英语 146 分，六级 550+。参加牛津展望计划、香港理工大学暑期学校，具备学术英语交流经验。</p>
+          </article>
+          <article class="strength">
+            <h3>科创经历</h3>
+            <p>入选同济大学“创新创业+”试验区、上海天使会高校青年科创营；曾在同济 XAI Lab 智能体验实验室、iS3-Lab 数智校园场景实验室参与科研实习；参与 APJIE 期刊大数据系统开发等。多次参加华为、腾讯、百度、字节、安永、上海创智学院、深圳河套学院活动。</p>
+          </article>
+          <article class="strength">
+            <h3>综合素养</h3>
+            <p>运营 100+ 网络社群，覆盖上万人的学生群体。获评同济大学 2025-2026 年度“明德之星”，并将于 10 月进行全校风采展示。参与摄影、体育、征文、演讲等多类赛事并获奖。大学累计志愿服务超过 50 小时，以负责人身份完成 A 级社会实践。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>何嘉乐 · Research Portfolio</span>
+      <a href="https://hachile.org/">访问个人主页 hachile.org →</a>
+    </footer>
+  </div>
+</body>
+</html>
