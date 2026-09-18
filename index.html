@@ -132,7 +132,7 @@
           <p class="eyebrow">Personal Resume · 个人简历</p>
           <h1>何嘉乐</h1>
           <p class="headline"><span>同济大学国豪书院</span><span>未来技术班（机器人）</span><span>大二</span></p>
-          <p class="research-note">当前有一篇 AI 能源类二区期刊论文，一作在投。</p>
+          <p class="research-note">关注具身智能、计算机视觉、低空态势感知与 AI for Science；当前有一篇人工智能与锂金属电池方向论文一作在投。</p>
         </div>
         <div class="contact-card" aria-label="联系方式">
           <p><span class="contact-label">邮箱</span><a href="mailto:hejiale.ai@outlook.com">hejiale.ai@outlook.com</a></p>
@@ -165,14 +165,19 @@
           <h2 id="awards-title">代表性竞赛奖项</h2>
         </div>
         <div class="section-body">
-          <p class="award-summary">大一期间共获得校级竞赛奖项八次、省级一次、国家级四次。</p>
+          <p class="award-summary">竞赛经历覆盖程序设计、数学建模、物理、网络安全与创新创业等方向。</p>
           <ul>
+            <li>清华大学程序设计竞赛暨高校邀请赛外校大学生组银奖</li>
             <li>2026 CCPC 全国邀请赛福州站铜牌</li>
+            <li>第十七届蓝桥杯软件赛省赛 C/C++ 程序设计 A 组省二等奖</li>
+            <li>第十一届数维杯大学生数学建模挑战赛（秋季赛）S 奖</li>
             <li>首届同济大学物理学术竞赛二等奖</li>
+            <li>创新物理实验设计竞赛优秀奖</li>
             <li>同济大学第三届网络安全竞赛二等奖</li>
             <li>第 25 届“同路人”交通科技大赛二等奖</li>
-            <li>“先导杯”全国大学生计算机系统能力大赛——智能计算创新设计赛校赛三等奖</li>
             <li>第九届中国国际大学生创新大赛同济大学校内赛银奖</li>
+            <li>国豪书院第三届“研学济豪”海报展三等奖</li>
+            <li>中学阶段获 NOIP 省一等奖、USACO 铜牌、全国高中数学联赛二等奖</li>
           </ul>
         </div>
       </section>
@@ -185,7 +190,7 @@
         <div class="section-body">
           <article class="skill">
             <h3>编程开发</h3>
-            <p>熟练掌握 Python、C++，具备 Flask、Streamlit Web 应用开发经验，熟悉端到端系统开发、API 对接与工程化集成流程；有 Qt、Arduino、Openloong、Isaac Sim 经验。</p>
+            <p>熟练使用 Python、C++、C，熟悉 Git、Shell，掌握 HTML、CSS、JavaScript；具备 Flask、Streamlit Web 原型开发、GitHub 部署与 API 对接经验，熟悉视频流处理、多进程并发、实时管线和端到端工程集成。</p>
           </article>
           <article class="skill">
             <h3>AI / 深度学习</h3>
@@ -194,6 +199,10 @@
           <article class="skill">
             <h3>仿真与工具链</h3>
             <p>熟悉 Blender、Unity、MATLAB，具备仿真场景构建、UI 设计与网页开发经验。</p>
+          </article>
+          <article class="skill">
+            <h3>数据处理</h3>
+            <p>具备时序数据建模与分析经验，熟悉 pandas、NumPy、Matplotlib、SQL 与 Python 爬虫，可完成数据处理、可视化和信息系统原型开发。</p>
           </article>
         </div>
       </section>
@@ -204,7 +213,7 @@
           <h2 id="projects-title">部分项目经历</h2>
         </div>
         <div class="section-body">
-          <a class="project-link" href="https://github.com/GPDdev">GitHub 个人主页（30+ 项目）→</a>
+          <a class="project-link" href="https://github.com/GPDdev">GitHub 个人主页 →</a>
 
           <article class="project">
             <p class="project-meta">国家级大学生创新创业训练计划 · 总策划</p>
@@ -222,6 +231,30 @@
             <p class="project-meta">国家级大学生创新创业训练计划 · 课题组成员</p>
             <h3>AegisDrive：面向自动驾驶失效场景的世界模型辅助最小风险决策系统</h3>
             <p>采用“舱内监控 + 舱外感知”双轨架构：舱内基于眼部与嘴部几何规则判定驾驶员状态，舱外使用轻量级 YOLOv8n 实现车辆检测与单目测距。基于世界模型，通过 Python 多进程并发处理双路视频流并实时预警，构建集成的主动式自驾安全方案。我负责舱内面部识别开发与项目文件撰写。项目获第 25 届“同路人”交通科技大赛新生赛二等奖，并升级为国家级大创项目；参加第九届中国国际大学生创新大赛同济大学校内赛获银奖。</p>
+          </article>
+
+          <article class="project">
+            <p class="project-meta">SITP 小组成员 · 具身智能</p>
+            <h3>QDepth-VLA：轻量级视觉模型赋能果园采摘</h3>
+            <p>以单目深度模型生成伪深度，经 VQ-VAE 离散为深度 token，并通过 Depth Expert 与 Hybrid Attention 将几何信息注入 VLA 主干。项目仅依赖普通 RGB 摄像头，在仿真与桌面机械臂平台完成“识别—定位—采摘”闭环原型验证。我负责前期论文调研、导师与实验室联络、采摘方式分析及机械臂开发。项目由两个 SITP 大创项目组合而成，正在参加第十五届“挑战杯”中国大学生创业计划竞赛。</p>
+          </article>
+
+          <article class="project">
+            <p class="project-meta">独立开发 · 时序数据分析</p>
+            <h3>多模态驾驶室座椅压力分析系统</h3>
+            <p>面向驾驶室座椅压力传感器数据，分析不同体重组别的压力变化趋势、稳定性指标与时序特征，为座椅设计优化和人机工程学研究提供数据支持。使用 pandas、NumPy 与 Matplotlib 完成数据处理、数值计算和可视化。</p>
+          </article>
+
+          <article class="project">
+            <p class="project-meta">开发小组成员 · 数据系统</p>
+            <h3>全球高校教师信息系统</h3>
+            <p>由上海国际知识产权学院 APJIE 期刊提出并提供数据支持，使用 Python 爬虫与 SQL 数据库构建全球高校教师信息系统，支持按年龄、工作单位和科研成果等维度查询。</p>
+          </article>
+
+          <article class="project">
+            <p class="project-meta">第一作者 · 在投论文</p>
+            <h3>基于人工智能的锂金属电池锂枝晶生长分析与预测</h3>
+            <p>构建包含扫描电镜图像、电化学时间序列及电解质与界面特征参数的多源数据集，使用 CNN 进行枝晶形貌识别与分级，以卷积与循环神经网络预测极化电压和过电位波动，并通过回归模型分析电解质组成、传输性质与枝晶生长之间的关系，为锂金属电池安全设计提供可解释的筛选思路。</p>
           </article>
         </div>
       </section>
@@ -242,7 +275,7 @@
           </article>
           <article class="strength">
             <h3>综合素养</h3>
-            <p>运营 100+ 网络社群，覆盖上万人的学生群体。获评同济大学 2025-2026 年度“明德之星”，并将于 10 月进行全校风采展示。参与摄影、体育、征文、演讲等多类赛事并获奖。大学累计志愿服务超过 50 小时，以负责人身份完成 A 级社会实践。</p>
+            <p>创建并管理国豪书院交流群、竞赛交流群和 AI 大模型交流群，负责未来技术班公众号运营，具备社群运营与公共关系处理经验。获国豪书院 2025 年度“明德之星”称号、卓越星奖励金校级提名；参与摄影、体育、征文、演讲等多类赛事并获奖。大学累计志愿服务超过 50 小时，以负责人身份完成 A 级社会实践。</p>
           </article>
         </div>
       </section>
