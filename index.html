@@ -3,288 +3,154 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="何嘉乐的个人研究与工程履历：竞赛奖项、技术能力、项目经历与个人特长。">
+  <meta name="description" content="何嘉乐的科研与项目成果，涵盖数字孪生、计算机视觉、具身智能、智能交通与 AI for Science。">
+  <meta name="theme-color" content="#f6f7f3">
   <link rel="canonical" href="https://research.hachile.org/">
-  <title>何嘉乐｜Research Portfolio</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #14213d;
-      --muted: #52617a;
-      --accent: #2156a5;
-      --accent-soft: #e9f0fb;
-      --line: #d8e1ef;
-      --paper: #ffffff;
-      --page: #f3f6fa;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        linear-gradient(135deg, rgb(33 86 165 / 5%) 0, transparent 32rem),
-        var(--page);
-      font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
-      line-height: 1.75;
-    }
-
-    a { color: var(--accent); text-underline-offset: 0.22em; }
-    a:hover { text-decoration-thickness: 2px; }
-    .skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 10; padding: .6rem 1rem; background: var(--ink); color: white; }
-    .skip-link:focus { top: 1rem; }
-
-    .page {
-      width: min(1120px, calc(100% - 2rem));
-      margin: 1.5rem auto;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      box-shadow: 0 24px 70px rgb(20 33 61 / 10%);
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem clamp(1.25rem, 4vw, 3.5rem);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand, .home-link { font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-decoration: none; }
-    .brand { color: var(--ink); }
-    .home-link { padding: .45rem .8rem; border: 1px solid var(--line); border-radius: 999px; }
-    .home-link:hover { background: var(--accent-soft); border-color: #afc4e5; }
-
-    main { padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 6vw, 5.5rem); }
-    .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(16rem, .65fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; padding-bottom: clamp(2.5rem, 6vw, 5rem); }
-    .hero > *, .section-body, .facts, .facts > * { min-width: 0; }
-    .eyebrow, .section-kicker { margin: 0 0 .7rem; color: var(--accent); font-size: .76rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    h1 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(3.4rem, 9vw, 7.8rem); font-weight: 500; letter-spacing: -.06em; line-height: .95; }
-    .headline { display: flex; flex-wrap: wrap; gap: .15rem .55rem; margin: 1.2rem 0 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); }
-    .headline span { flex: 0 0 auto; }
-    .headline span + span::before { content: "·"; margin-right: .55rem; }
-    .research-note { margin: 1rem 0 0; max-width: 42rem; font-weight: 700; }
-
-    .contact-card { padding: 1.4rem; background: var(--ink); color: white; }
-    .contact-card p { margin: 0; }
-    .contact-card p + p { margin-top: .48rem; }
-    .contact-card a { color: white; overflow-wrap: anywhere; }
-    .contact-label { display: inline-block; min-width: 4.6rem; color: #b8cae7; font-size: .8rem; font-weight: 700; letter-spacing: .06em; }
-
-    section.resume-section { display: grid; grid-template-columns: minmax(10rem, .28fr) minmax(0, .72fr); gap: clamp(1.5rem, 5vw, 4rem); padding: clamp(2rem, 5vw, 4rem) 0; border-top: 1px solid var(--line); }
-    .section-heading h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 500; line-height: 1.2; }
-    .section-body > :first-child { margin-top: 0; }
-    .section-body > :last-child { margin-bottom: 0; }
-
-    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 2rem; margin: 0; }
-    .facts div { padding-bottom: .7rem; border-bottom: 1px solid var(--line); }
-    dt { color: var(--muted); font-size: .8rem; font-weight: 700; letter-spacing: .05em; }
-    dd { margin: .16rem 0 0; font-weight: 650; overflow-wrap: anywhere; }
-    .note { color: var(--muted); font-size: .9rem; }
-
-    ul { margin: 0; padding-left: 1.25rem; }
-    li + li { margin-top: .7rem; }
-    .award-summary { margin: 0 0 1.2rem; padding: 1rem 1.15rem; border-left: 4px solid var(--accent); background: var(--accent-soft); font-weight: 700; }
-
-    .skill + .skill, .project + .project, .strength + .strength { margin-top: 2rem; }
-    .skill h3, .project h3, .strength h3 { margin: 0 0 .45rem; font-size: 1.08rem; line-height: 1.45; }
-    .skill p, .project p, .strength p { margin: 0; color: #2f3c52; }
-    .project-meta { margin: 0 0 .55rem !important; color: var(--accent) !important; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .project-link { display: inline-block; margin-bottom: 1.5rem; font-weight: 700; }
-
-    footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem clamp(1.25rem, 4vw, 3.5rem); border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
-
-    @media (max-width: 760px) {
-      .page { width: 100%; margin: 0; border: 0; box-shadow: none; }
-      .topbar { align-items: flex-start; flex-direction: column; }
-      .home-link { white-space: nowrap; }
-      .hero, section.resume-section { grid-template-columns: 1fr; }
-      .hero { align-items: start; }
-      .headline { overflow-wrap: anywhere; }
-      .facts { grid-template-columns: 1fr; }
-      footer { flex-direction: column; }
-    }
-
-    @media print {
-      body { background: white; }
-      .page { width: 100%; margin: 0; border: 0; box-shadow: none; }
-      .topbar, footer { display: none; }
-      main { padding: 0; }
-      .hero { padding-top: 1rem; }
-      section.resume-section { break-inside: avoid; }
-      a { color: inherit; text-decoration: none; }
-    }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="./assets/research-mark.svg">
+  <link rel="stylesheet" href="./assets/research.css">
+  <title>何嘉乐 | 科研与项目成果</title>
 </head>
 <body>
-  <a class="skip-link" href="#content">跳到主要内容</a>
-  <div class="page">
-    <header class="topbar">
-      <a class="brand" href="#top">何嘉乐 · Research</a>
-      <a class="home-link" href="https://hachile.org/">返回 hachile.org →</a>
-    </header>
+  <a class="skip-link" href="#projects">跳到成果列表</a>
+  <header class="site-header">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">H<span>R</span></span><span><strong>何嘉乐</strong><small>RESEARCH &amp; PROJECTS</small></span></a>
+    <nav aria-label="主导航"><a href="#projects">成果目录</a><a href="#contact">联系我</a><a class="home-link" href="https://hachile.org/">hachile.org <span aria-hidden="true">↗</span></a></nav>
+  </header>
 
-    <main id="content">
-      <section class="hero" id="top">
-        <div>
-          <p class="eyebrow">Personal Resume · 个人简历</p>
-          <h1>何嘉乐</h1>
-          <p class="headline"><span>同济大学国豪书院</span><span>未来技术班（机器人）</span><span>大二</span></p>
-          <p class="research-note">关注具身智能、计算机视觉、低空态势感知与 AI for Science；当前有一篇人工智能与锂金属电池方向论文一作在投。</p>
-        </div>
-        <div class="contact-card" aria-label="联系方式">
-          <p><span class="contact-label">邮箱</span><a href="mailto:hejiale.ai@outlook.com">hejiale.ai@outlook.com</a></p>
-          <p><span class="contact-label">微信 / QQ</span>1213956808</p>
-          <p><span class="contact-label">GitHub</span><a href="https://github.com/GPDdev">github.com/GPDdev</a></p>
-        </div>
-      </section>
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> SELECTED RESEARCH &amp; ENGINEERING</p>
+        <h1 id="hero-title">科研与项目<br><em>成果档案</em></h1>
+        <p class="hero-intro">我是何嘉乐，同济大学机器人专业本科生。<br>在具身智能、计算机视觉、数字孪生与 AI for Science 之间，探索研究方法与真实场景的连接。</p>
+        <a class="text-link" href="#projects">浏览全部成果 <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="research-map">
+        <p class="map-caption">从感知与建模，到现实系统</p>
+        <svg viewBox="0 0 440 330" role="img" aria-label="科研主题涵盖数字孪生、计算机视觉、具身智能与 AI for Science">
+          <defs><pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#cbd6cf"/></pattern></defs>
+          <rect width="440" height="330" fill="url(#grid)"/>
+          <g fill="none" stroke="#aabcb2" stroke-width="1"><circle cx="220" cy="165" r="108"/><circle cx="220" cy="165" r="75" stroke-dasharray="3 6"/><path d="M220 45V285M100 165H340"/></g>
+          <g stroke="#00776a" stroke-width="1.5" fill="none"><path d="M117 91L194 147M323 91L246 147M117 239L194 183M323 239L246 183"/></g>
+          <g fill="#f6f7f3" stroke="#00776a" stroke-width="1.5"><circle cx="117" cy="91" r="6"/><circle cx="323" cy="91" r="6"/><circle cx="117" cy="239" r="6"/><circle cx="323" cy="239" r="6"/></g>
+          <rect x="181" y="126" width="78" height="78" rx="39" fill="#173d36"/>
+          <text x="220" y="174" fill="#fff" font-size="25" text-anchor="middle" font-family="Georgia,serif">AI</text>
+          <g fill="#18342d" font-size="15" font-weight="600" text-anchor="middle"><text x="100" y="64">数字孪生</text><text x="340" y="64">计算机视觉</text><text x="100" y="274">具身智能</text><text x="340" y="274">AI for Science</text></g>
+          <g fill="#71847b" font-size="9" letter-spacing="1.3" text-anchor="middle"><text x="100" y="46">DIGITAL TWIN</text><text x="340" y="46">COMPUTER VISION</text><text x="100" y="296">EMBODIED INTELLIGENCE</text><text x="340" y="296">ENERGY &amp; MATERIALS</text></g>
+        </svg>
+        <p class="map-foot"><span>感知</span><span>建模</span><span>分析</span><span>行动</span></p>
+      </div>
+      <dl class="hero-facts"><div><dt>收录成果</dt><dd>08<span>项</span></dd></div><div><dt>国家级大创项目</dt><dd>02<span>项</span></dd></div><div><dt>在投论文</dt><dd>01<span>篇</span></dd></div></dl>
+    </section>
 
-      <section class="resume-section" aria-labelledby="profile-title">
-        <div class="section-heading">
-          <p class="section-kicker">01 · Profile</p>
-          <h2 id="profile-title">个人信息</h2>
-        </div>
-        <div class="section-body">
-          <dl class="facts">
-            <div><dt>姓名</dt><dd>何嘉乐</dd></div>
-            <div><dt>学号</dt><dd>2554072</dd></div>
-            <div><dt>学院</dt><dd>同济大学国豪书院</dd></div>
-            <div><dt>专业</dt><dd>未来技术班（机器人）</dd></div>
-            <div><dt>年级</dt><dd>大二</dd></div>
-            <div><dt>邮箱</dt><dd><a href="mailto:hejiale.ai@outlook.com">hejiale.ai@outlook.com</a></dd></div>
-          </dl>
-          <p class="note">未来技术班来自国豪书院二次选拔，实施交叉学科领域培养。</p>
-        </div>
-      </section>
-
-      <section class="resume-section" aria-labelledby="awards-title">
-        <div class="section-heading">
-          <p class="section-kicker">02 · Awards</p>
-          <h2 id="awards-title">代表性竞赛奖项</h2>
-        </div>
-        <div class="section-body">
-          <p class="award-summary">竞赛经历覆盖程序设计、数学建模、物理、网络安全与创新创业等方向。</p>
-          <ul>
-            <li>清华大学程序设计竞赛暨高校邀请赛外校大学生组银奖</li>
-            <li>2026 CCPC 全国邀请赛福州站铜牌</li>
-            <li>第十七届蓝桥杯软件赛省赛 C/C++ 程序设计 A 组省二等奖</li>
-            <li>第十一届数维杯大学生数学建模挑战赛（秋季赛）S 奖</li>
-            <li>首届同济大学物理学术竞赛二等奖</li>
-            <li>创新物理实验设计竞赛优秀奖</li>
-            <li>同济大学第三届网络安全竞赛二等奖</li>
-            <li>第 25 届“同路人”交通科技大赛二等奖</li>
-            <li>第九届中国国际大学生创新大赛同济大学校内赛银奖</li>
-            <li>国豪书院第三届“研学济豪”海报展三等奖</li>
-            <li>中学阶段获 NOIP 省一等奖、USACO 铜牌、全国高中数学联赛二等奖</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="resume-section" aria-labelledby="skills-title">
-        <div class="section-heading">
-          <p class="section-kicker">03 · Skills</p>
-          <h2 id="skills-title">技术能力</h2>
-        </div>
-        <div class="section-body">
-          <article class="skill">
-            <h3>编程开发</h3>
-            <p>熟练使用 Python、C++、C，熟悉 Git、Shell，掌握 HTML、CSS、JavaScript；具备 Flask、Streamlit Web 原型开发、GitHub 部署与 API 对接经验，熟悉视频流处理、多进程并发、实时管线和端到端工程集成。</p>
-          </article>
-          <article class="skill">
-            <h3>AI / 深度学习</h3>
-            <p>完成华为 HCIA-AI 课程学习，熟悉 PyTorch 模型训练与部署，具备 YOLO、OpenCV 等计算机视觉工程应用经验；参与 VLA / 具身智能方向项目实践，了解 Stable Diffusion、TensorFlow，具备 CNN / RNN 与时序分析实践经验。</p>
-          </article>
-          <article class="skill">
-            <h3>仿真与工具链</h3>
-            <p>熟悉 Blender、Unity、MATLAB，具备仿真场景构建、UI 设计与网页开发经验。</p>
-          </article>
-          <article class="skill">
-            <h3>数据处理</h3>
-            <p>具备时序数据建模与分析经验，熟悉 pandas、NumPy、Matplotlib、SQL 与 Python 爬虫，可完成数据处理、可视化和信息系统原型开发。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="resume-section" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="section-kicker">04 · Projects</p>
-          <h2 id="projects-title">部分项目经历</h2>
-        </div>
-        <div class="section-body">
-          <a class="project-link" href="https://github.com/GPDdev">GitHub 个人主页 →</a>
-
-          <article class="project">
-            <p class="project-meta">国家级大学生创新创业训练计划 · 总策划</p>
-            <h3>西南一楼数字孪生平台</h3>
-            <p>基于朱合华院士团队的基础设施数字底座与同济 iS3 Lab，构建以西南一楼宿舍为基座的未来书院社区平台。我负责从计划提出、招募成员、寻求实验室和导师支持，到计划书撰写、API 申请、Blender 三维建模、云服务器评估部署与 UI 设计。该项目已升级为国家级大创项目。</p>
+    <section class="work-section wrap" id="projects" aria-labelledby="work-title">
+      <header class="section-header"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">研究与实践</h2></div><p>从项目策划、系统开发到模型研究，<br>记录具体工作与阶段性成果。</p></header>
+      <div class="work-layout">
+        <nav class="project-index" aria-label="成果目录">
+          <p>成果索引 <span>01—08</span></p>
+          <ol>
+            <li><a href="#digital-twin"><span>01</span>西南一楼数字孪生</a></li>
+            <li><a href="#iasr"><span>02</span>IASR System</a></li>
+            <li><a href="#seat-pressure"><span>03</span>座椅压力分析</a></li>
+            <li><a href="#faculty-system"><span>04</span>全球高校教师系统</a></li>
+            <li><a href="#safety-copilot"><span>05</span>AI 安全副驾</a></li>
+            <li><a href="#aegisdrive"><span>06</span>AegisDrive</a></li>
+            <li><a href="#qdepth-vla"><span>07</span>QDepth-VLA</a></li>
+            <li><a href="#lithium-dendrite"><span>08</span>锂枝晶分析与预测</a></li>
+          </ol>
+        </nav>
+        <div class="project-list">
+          <article class="project featured-project" id="digital-twin" aria-labelledby="digital-twin-title">
+            <div class="project-topline"><span class="project-number">01 / DIGITAL TWIN</span><span class="role">总策划</span></div>
+            <h3 id="digital-twin-title">西南一楼数字孪生平台</h3>
+            <p class="project-deck">以真实宿舍楼为基座，探索未来书院社区的管理、服务与开放式创新。</p>
+            <p>本项目基于朱合华院士团队自主研发的 iS3 基础设施数字底座，由 iS3 Lab - 数智校园场景实验室提供支持，旨在以西南一楼为现实基座，构建一个与物理实体宿舍楼实时映射、虚实交互的智能管理服务体系，并打造一个集精细化管理、便捷化服务、沉浸化体验与开放式创新于一体的未来书院社区示范平台。</p>
+            <div class="contribution"><h4>我的工作</h4><p>作为团队的总策划，我完成了从计划提出、招募成员到撰写计划书、建立核心研发团队，再到项目在 GitHub 部署以及 API 申请、Blender 场景三维建模、参与完成云服务器评估部署、参与 UI 设计与功能添加等一系列工作。</p></div>
+            <p class="outcome"><span aria-hidden="true">✦</span><strong>该项目已升级为国家级大创项目。</strong></p>
+            <ul class="tech-list" aria-label="技术与方法"><li>iS3</li><li>数字孪生</li><li>Blender</li><li>云部署</li></ul>
+            <div class="project-links"><a href="https://github.com/Southwest-Building-1-Digital-Twin/DROM" target="_blank" rel="noopener noreferrer">GitHub 项目仓库 <span aria-hidden="true">↗</span></a></div>
           </article>
 
-          <article class="project">
-            <p class="project-meta">独立开发</p>
-            <h3>IASR System：空中态势识别集成系统</h3>
-            <p>系统以视频为输入进行目标检测与跟踪，计算交通态势指标与拥堵指数，同时给出基于视频清晰度的能见度态势估计，最终输出统一格式的事件，并根据配置将事件路由给运行、安防、应急、交管等对象。项目获同济大学国豪书院第三届“研学济豪”海报展三等奖。</p>
+          <article class="project" id="iasr" aria-labelledby="iasr-title">
+            <div class="project-topline"><span class="project-number">02 / COMPUTER VISION</span><span class="role">独立开发</span></div>
+            <h3 id="iasr-title">IASR System：空中态势识别集成系统</h3>
+            <p class="project-deck">以视频感知为入口，将检测、跟踪、态势分析与事件预警整合为统一系统。</p>
+            <p>IASR System 是一个可扩展的低空态势识别与预警集成系统。系统以视频为输入，进行目标检测与跟踪，计算交通态势指标（流量、占有率、速度）与拥堵指数，同时给出基于视频清晰度的能见度态势估计（雾、霾、烟的代理指标），最终输出统一格式的事件，并根据配置将事件路由给运行、安防、应急、交管等对象。</p>
+            <p>项目基于 Streamlit 仪表盘开发，通过 YOLO 实现视频目标检测与跟踪，OpenCV 实现静态图片识别。</p>
+            <p class="outcome"><span aria-hidden="true">✦</span><strong>项目获同济大学国豪书院第三届“研学济豪”海报展三等奖。</strong></p>
+            <ul class="tech-list" aria-label="技术与方法"><li>Streamlit</li><li>YOLO</li><li>OpenCV</li><li>目标跟踪</li></ul>
+            <div class="project-links"><a href="https://github.com/GPDdev/IASR-Integrated-air-situation-recognition-system" target="_blank" rel="noopener noreferrer">主项目仓库 <span aria-hidden="true">↗</span></a><a href="https://github.com/GPDdev/IASR-System-Cloud-Version" target="_blank" rel="noopener noreferrer">云端版本 <span aria-hidden="true">↗</span></a><a href="https://github.com/GPDdev/IASR-system-old-version" target="_blank" rel="noopener noreferrer">早期版本 <span aria-hidden="true">↗</span></a></div>
           </article>
 
-          <article class="project">
-            <p class="project-meta">国家级大学生创新创业训练计划 · 课题组成员</p>
-            <h3>AegisDrive：面向自动驾驶失效场景的世界模型辅助最小风险决策系统</h3>
-            <p>采用“舱内监控 + 舱外感知”双轨架构：舱内基于眼部与嘴部几何规则判定驾驶员状态，舱外使用轻量级 YOLOv8n 实现车辆检测与单目测距。基于世界模型，通过 Python 多进程并发处理双路视频流并实时预警，构建集成的主动式自驾安全方案。我负责舱内面部识别开发与项目文件撰写。项目获第 25 届“同路人”交通科技大赛新生赛二等奖，并升级为国家级大创项目；参加第九届中国国际大学生创新大赛同济大学校内赛获银奖。</p>
+          <article class="project" id="seat-pressure" aria-labelledby="seat-pressure-title">
+            <div class="project-topline"><span class="project-number">03 / TIME-SERIES ANALYSIS</span><span class="role">独立开发</span></div>
+            <h3 id="seat-pressure-title">基于时序设计的多模态驾驶室座椅压力分析系统</h3>
+            <p class="project-deck">通过压力分布的时序分析，为座椅优化与人机工程学研究提供数据支持。</p>
+            <p>本项目是一个专门用于分析驾驶室座椅压力传感器数据的时序数据分析工具。通过采集用户在座椅上的压力分布数据，系统可以分析不同体重组别的压力变化趋势、稳定性指标以及时序特征，为座椅设计优化和人机工程学研究提供数据支持。</p>
+            <p>项目数据由同济 XAI Lab 提供，我在 2025 年 11 月完成代码编写。项目使用 pandas 进行数据处理和分析，NumPy 进行数值计算和矩阵操作，Matplotlib 实现数据可视化。</p>
+            <ul class="tech-list" aria-label="技术与方法"><li>pandas</li><li>NumPy</li><li>Matplotlib</li><li>时序分析</li></ul>
+            <div class="project-links"><a href="https://github.com/GPDdev/Multimodal-cab-seat-pressure-analysis-system" target="_blank" rel="noopener noreferrer">GitHub 项目仓库 <span aria-hidden="true">↗</span></a></div>
           </article>
 
-          <article class="project">
-            <p class="project-meta">SITP 小组成员 · 具身智能</p>
-            <h3>QDepth-VLA：轻量级视觉模型赋能果园采摘</h3>
-            <p>以单目深度模型生成伪深度，经 VQ-VAE 离散为深度 token，并通过 Depth Expert 与 Hybrid Attention 将几何信息注入 VLA 主干。项目仅依赖普通 RGB 摄像头，在仿真与桌面机械臂平台完成“识别—定位—采摘”闭环原型验证。我负责前期论文调研、导师与实验室联络、采摘方式分析及机械臂开发。项目由两个 SITP 大创项目组合而成，正在参加第十五届“挑战杯”中国大学生创业计划竞赛。</p>
+          <article class="project" id="faculty-system" aria-labelledby="faculty-system-title">
+            <div class="project-topline"><span class="project-number">04 / DATA SYSTEMS</span><span class="role">开发小组成员</span></div>
+            <h3 id="faculty-system-title">全球高校教师信息系统</h3>
+            <p class="project-deck">以数据采集与结构化查询，连接全球高校教师的学术信息。</p>
+            <p>本项目由上海国际知识产权学院 APJIE 期刊提出并提供资金和数据支持，使用 Python 爬虫、SQL 数据库等技术，构建了一个包括全球高校教师的信息系统，支持对高校教师年龄、工作单位、科研成果等的查询。</p>
+            <ul class="tech-list" aria-label="技术与方法"><li>Python</li><li>SQL</li><li>数据采集</li><li>信息检索</li></ul>
+            <div class="project-links"><a href="https://github.com/GPDdev/University-faculty-information-system-demo-" target="_blank" rel="noopener noreferrer">GitHub 项目仓库 <span aria-hidden="true">↗</span></a></div>
           </article>
 
-          <article class="project">
-            <p class="project-meta">独立开发 · 时序数据分析</p>
-            <h3>多模态驾驶室座椅压力分析系统</h3>
-            <p>面向驾驶室座椅压力传感器数据，分析不同体重组别的压力变化趋势、稳定性指标与时序特征，为座椅设计优化和人机工程学研究提供数据支持。使用 pandas、NumPy 与 Matplotlib 完成数据处理、数值计算和可视化。</p>
+          <article class="project" id="safety-copilot" aria-labelledby="safety-copilot-title">
+            <div class="project-topline"><span class="project-number">05 / DRIVER MONITORING</span><span class="role">开发小组成员</span></div>
+            <h3 id="safety-copilot-title">AI“安全副驾”：驾驶员分心与疲劳状态智能监测</h3>
+            <p class="project-deck">舱内状态识别与舱外环境感知并行运行，构建轻量化主动安全原型。</p>
+            <p>本项目采用“舱内监控＋舱外感知”双轨并行的技术路线：舱内基于 MediaPipe 面部关键点，通过眼睛与嘴部纵横比等几何规则逻辑判定驾驶员状态；舱外采用轻量级 YOLOv8n 模型实现车辆检测与单目视觉测距。</p>
+            <p>系统通过 Python 多进程（生产者－消费者）架构实现双路视频流的实时并发处理与预警。最终目标是构建一个集成化、轻量化且具备科学验证的主动安全解决方案。</p>
+            <ul class="tech-list" aria-label="技术与方法"><li>MediaPipe</li><li>YOLOv8n</li><li>单目测距</li><li>Python 多进程</li></ul>
+            <div class="project-links"><a href="https://github.com/yanghan0316-cloud/IDMS_Project" target="_blank" rel="noopener noreferrer">GitHub 项目仓库 <span aria-hidden="true">↗</span></a></div>
           </article>
 
-          <article class="project">
-            <p class="project-meta">开发小组成员 · 数据系统</p>
-            <h3>全球高校教师信息系统</h3>
-            <p>由上海国际知识产权学院 APJIE 期刊提出并提供数据支持，使用 Python 爬虫与 SQL 数据库构建全球高校教师信息系统，支持按年龄、工作单位和科研成果等维度查询。</p>
+          <article class="project" id="aegisdrive" aria-labelledby="aegisdrive-title">
+            <div class="project-topline"><span class="project-number">06 / WORLD MODELS &amp; SAFETY</span><span class="role">课题组成员</span></div>
+            <h3 id="aegisdrive-title">AegisDrive：面向自动驾驶失效场景的世界模型辅助最小风险决策系统</h3>
+            <p class="project-deck">结合世界模型与双路感知，探索自动驾驶失效场景中的主动安全决策。</p>
+            <p>采用“舱内监控＋舱外感知”双轨架构，舱内基于眼部与嘴部几何规则判定驾驶员状态，舱外使用轻量级 YOLOv8n 实现车辆检测与单目测距。基于世界模型，通过 Python 多进程并发处理双路视频流并实时预警，构建集成的主动式自驾安全方案。</p>
+            <div class="contribution"><h4>我的工作</h4><p>我负责舱内面部识别开发与项目文件撰写。</p></div>
+            <div class="outcome outcome-list"><span aria-hidden="true">✦</span><div><strong>国家级大创项目</strong><ul><li>第25届“同路人”交通科技大赛新生赛二等奖</li><li>第九届中国国际大学生创新大赛同济大学校内赛银奖</li></ul></div></div>
+            <ul class="tech-list" aria-label="技术与方法"><li>世界模型</li><li>驾驶员状态识别</li><li>YOLOv8n</li><li>多进程并发</li></ul>
+            <div class="project-links"><a href="https://github.com/GPDdev/AegisDrive-MRM" target="_blank" rel="noopener noreferrer">GitHub 项目仓库 <span aria-hidden="true">↗</span></a></div>
           </article>
 
-          <article class="project">
-            <p class="project-meta">第一作者 · 在投论文</p>
-            <h3>基于人工智能的锂金属电池锂枝晶生长分析与预测</h3>
-            <p>构建包含扫描电镜图像、电化学时间序列及电解质与界面特征参数的多源数据集，使用 CNN 进行枝晶形貌识别与分级，以卷积与循环神经网络预测极化电压和过电位波动，并通过回归模型分析电解质组成、传输性质与枝晶生长之间的关系，为锂金属电池安全设计提供可解释的筛选思路。</p>
+          <article class="project" id="qdepth-vla" aria-labelledby="qdepth-vla-title">
+            <div class="project-topline"><span class="project-number">07 / EMBODIED INTELLIGENCE</span><span class="role">开发小组成员</span></div>
+            <h3 id="qdepth-vla-title">QDepth-VLA：轻量级视觉模型赋能果园采摘</h3>
+            <p class="project-deck">只用普通 RGB 摄像头，将三维几何理解融入视觉－语言－动作模型。</p>
+            <p>QDepth-VLA 通过先用单目深度模型生成伪深度，再把连续深度用 VQ-VAE 离散成 256 个深度 token，通过一个 Depth Expert 和 Hybrid Attention 把几何信息注入到 VLA 主干的中间表征里，联合优化“动作损失＋深度 token 损失”，并在训练过程中逐步衰减深度监督权重。</p>
+            <p>本项目提出并落地一套仅依赖普通 RGB 摄像头的低成本采摘引导方案：在推理阶段只输入 RGB 图像，通过 QDepth-VLA 将三维几何理解“内化”到视觉－语言－动作模型中。</p>
+            <p>项目构建了果园专用数据集，并基于开源 Open-π₀ 嫁接深度专家模块进行指令微调，最终在仿真（Isaac Sim / LIBERO）与桌面机械臂平台完成“识别－定位－采摘”闭环原型验证。</p>
+            <ul class="tech-list" aria-label="技术与方法"><li>VLA</li><li>VQ-VAE</li><li>Open-π₀</li><li>Isaac Sim / LIBERO</li></ul>
+          </article>
+
+          <article class="project paper-project" id="lithium-dendrite" aria-labelledby="lithium-dendrite-title">
+            <div class="project-topline"><span class="project-number">08 / AI FOR SCIENCE</span><span class="role paper-status">AI and Energy 在投</span></div>
+            <h3 id="lithium-dendrite-title">基于人工智能的锂金属电池锂枝晶生长分析与预测<span class="title-sub">结合机器学习与多尺度模拟</span></h3>
+            <p class="project-deck">融合形貌图像、电化学时间序列与材料参数，研究枝晶生长的分析和预测。</p>
+            <p>本文引入人工智能对枝晶形貌与动力学进行综合分析与预测：基于实验室数据构建包含扫描电镜图像、电化学充放电时间序列及电解质与界面特征参数的多源数据集，利用 CNN 实现枝晶形貌自动识别与分级，并以分形维数、枝晶长度和占比等指标量化。</p>
+            <p>进一步建立一维卷积结合循环神经网络的时间序列模型，预测极化电压与过电位波动，并对失控生长风险进行预警；最后用回归模型将电解质组成与传输性质映射到枝晶生长速率和形貌特征，用于筛选抑制枝晶的电解质体系。</p>
+            <p>结果显示，该 AI 框架在形貌识别与电化学响应预测上精度较高，且能给出与物理化学机理一致的特征重要性，为锂金属电池安全设计提供高通量、可解释的新思路。</p>
+            <ul class="tech-list" aria-label="技术与方法"><li>CNN / RNN</li><li>多源数据</li><li>多尺度模拟</li><li>可解释机器学习</li></ul>
+            <div class="project-links"><a href="https://github.com/GPDdev/Lithium-Dendrite-Cellular-Automata-Simulator" target="_blank" rel="noopener noreferrer">相关锂枝晶模拟器 <span aria-hidden="true">↗</span></a></div>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="resume-section" aria-labelledby="strengths-title">
-        <div class="section-heading">
-          <p class="section-kicker">05 · Strengths</p>
-          <h2 id="strengths-title">个人特长</h2>
-        </div>
-        <div class="section-body">
-          <article class="strength">
-            <h3>学科基础</h3>
-            <p>高中获信息学竞赛省一等奖；高考英语 146 分，六级 550+。参加牛津展望计划、香港理工大学暑期学校，具备学术英语交流经验。</p>
-          </article>
-          <article class="strength">
-            <h3>科创经历</h3>
-            <p>入选同济大学“创新创业+”试验区、上海天使会高校青年科创营；曾在同济 XAI Lab 智能体验实验室、iS3-Lab 数智校园场景实验室参与科研实习；参与 APJIE 期刊大数据系统开发等。多次参加华为、腾讯、百度、字节、安永、上海创智学院、深圳河套学院活动。</p>
-          </article>
-          <article class="strength">
-            <h3>综合素养</h3>
-            <p>创建并管理国豪书院交流群、竞赛交流群和 AI 大模型交流群，负责未来技术班公众号运营，具备社群运营与公共关系处理经验。获国豪书院 2025 年度“明德之星”称号、卓越星奖励金校级提名；参与摄影、体育、征文、演讲等多类赛事并获奖。大学累计志愿服务超过 50 小时，以负责人身份完成 A 级社会实践。</p>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <span>何嘉乐 · Research Portfolio</span>
-      <a href="https://hachile.org/">访问个人主页 hachile.org →</a>
-    </footer>
-  </div>
+    <section class="contact-section wrap" id="contact" aria-labelledby="contact-title">
+      <div><p class="eyebrow">02 / GET IN TOUCH</p><h2 id="contact-title">研究交流与项目合作</h2><p>欢迎就研究方向、项目实现与合作机会联系我。</p></div>
+      <div class="contact-links"><a href="mailto:hejiale.ai@outlook.com">hejiale.ai@outlook.com <span aria-hidden="true">↗</span></a><a href="https://github.com/GPDdev" target="_blank" rel="noopener noreferrer">GitHub / GPDdev <span aria-hidden="true">↗</span></a><a href="https://hachile.org/">访问 hachile.org <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><span>© 2026 何嘉乐 / Hachile Research</span><span>科研与项目成果</span><a href="#top">返回顶部 ↑</a></footer>
 </body>
 </html>
